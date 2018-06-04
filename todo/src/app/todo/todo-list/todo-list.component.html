@@ -1,0 +1,26 @@
+<ul style=" list-style-type: none;">
+  <li *ngFor="let item of todoService.GetItems(listId) | async">
+
+<div class="col-md-3 col-sm-12">
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <div class="input-group-text">
+          <input type="checkbox" aria-label="mark as completed" [checked]="item.completed" (change)="setItemCompletion(listId,item.id, $event.target.checked)">
+        </div>
+      </div>
+      <label [ngClass]="item.completed?'CompletedItem':''" class="form-control">{{item.description}}</label>
+      <div class="input-group-append">
+        <button  class="form-control" (click)="removeItem(listId,item.id)">X</button>
+      </div>
+
+
+
+    </div>
+</div>
+
+    <!--<input type="checkbox"  [checked]="item.completed"-->
+           <!--(change)="setItemCompletion(item.id, $event.target.checked)"/>-->
+
+
+  </li>
+</ul>

@@ -1,0 +1,14 @@
+<ul class="nav nav-tabs" id="myTab" role="tablist" *ngFor="let list of todoService.lists | async">
+  <li class="nav-item">
+    <a class="nav-link " id="{{list.id}}-tab" data-toggle="tab" href="#{{list.id}}" role="tab" aria-controls="home"
+       aria-selected="true">{{list.name}}</a>
+  </li>
+</ul>
+<div class="tab-content" id="myTabContent" *ngFor="let list of todoService.lists | async">
+  <div class="tab-pane fade show " id="{{list.id}}" role="tabpanel" >
+    <br/>
+    <app-todo-input-box [listId]="list.id"></app-todo-input-box>
+    <app-todo-list [listId]="list.id"></app-todo-list>
+  </div>
+
+</div>
