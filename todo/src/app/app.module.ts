@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import {TodoListComponent} from './todo/todo-list/todo-list.component';
 import {TodoModule} from './todo/todo.module';
 import {TodoInputBoxComponent} from './todo/todo-input-box/todo-input-box.component';
+import {TodoListsComponent} from './todo/todo-lists/todo-lists.component';
 // import {TodoListsComponent} from './todo/todo-lists/todo-lists.component';
 // import {TodoService} from './todo/todo.service';
 @NgModule({
@@ -16,6 +17,7 @@ import {TodoInputBoxComponent} from './todo/todo-input-box/todo-input-box.compon
     TodoModule
   ],
   providers: [],
-  bootstrap: [TodoInputBoxComponent, TodoListComponent]
+  //bootstrap: [TodoInputBoxComponent, TodoListComponent]
+  bootstrap:  [TodoListsComponent]
 })
 export class AppModule { }

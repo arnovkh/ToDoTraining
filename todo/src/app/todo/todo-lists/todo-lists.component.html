@@ -1,11 +1,11 @@
-<ul class="nav nav-tabs" id="myTab" role="tablist" *ngFor="let list of todoService.lists | async">
-  <li class="nav-item">
-    <a class="nav-link " id="{{list.id}}-tab" data-toggle="tab" href="#{{list.id}}" role="tab" aria-controls="home"
+<ul class="nav nav-tabs" id="myTab" role="tablist" >
+  <li class="nav-item"  *ngFor="let list of todoService.lists; let index = index ">
+    <a class="nav-link " [class.active]="index == 0" id="{{list.id}}-tab" data-toggle="tab" href="#{{list.id}}" role="tab" aria-controls="home"
        aria-selected="true">{{list.name}}</a>
   </li>
 </ul>
-<div class="tab-content" id="myTabContent" *ngFor="let list of todoService.lists">
-  <div class="tab-pane fade show " id="{{list.id}}" role="tabpanel" >
+<div class="tab-content" id="myTabContent" >
+  <div class="tab-pane fade show "  [class.active]="index == 0" id="{{list.id}}" role="tabpanel"  *ngFor="let list of todoService.lists; let index = index">
     <br/>
     <app-todo-input-box [listId]="list.id"></app-todo-input-box>
     <app-todo-list [listId]="list.id"></app-todo-list>

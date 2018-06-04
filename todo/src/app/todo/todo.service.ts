@@ -42,12 +42,12 @@ export class TodoService {
   // }
 
 
-  public addItem(listid: number = 1, item: string): void {
+  public addItem(listid: number , item: string): void {
     this.http.post(`http://localhost:8083/todos/${listid}/items`, {description: item})
       .subscribe(() => this.refreshTodoLists());
   }
 
-  public removeItemWithIndex(listid: number = 1, indexToRemove: number): void {
+  public removeItemWithIndex(listid: number, indexToRemove: number): void {
     this.http.delete(`http://localhost:8083/todos/${listid}/items/${indexToRemove}`, {}).subscribe(
       () => this.refreshTodoLists());
 

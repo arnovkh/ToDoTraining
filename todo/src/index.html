@@ -15,21 +15,22 @@
 <div class="container">
 <br/>
   <!--<app-todo-lists></app-todo-lists>-->
-<ul class="nav nav-tabs" id="myTab" role="tablist">
-  <li class="nav-item">
-    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
-       aria-selected="true">Home</a>
-  </li>
-</ul>
-<div class="tab-content" id="myTabContent">
-  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-    <br/>
-    <app-todo-input-box></app-todo-input-box>
-    <app-todo-list></app-todo-list>
-  </div>
+<!--<ul class="nav nav-tabs" id="myTab" role="tablist">-->
+  <!--<li class="nav-item">-->
+    <!--<a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"-->
+       <!--aria-selected="true">Home</a>-->
+  <!--</li>-->
+<!--</ul>-->
+<!--<div class="tab-content" id="myTabContent">-->
+  <!--<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">-->
+    <!--<br/>-->
+    <!--&lt;!&ndash;<app-todo-input-box></app-todo-input-box>&ndash;&gt;-->
+    <!--&lt;!&ndash;<app-todo-list></app-todo-list>&ndash;&gt;-->
+    <app-todo-lists></app-todo-lists>
+  <!--</div>-->
 
 </div>
-</div>
+
 
 
 </body>
@@ -44,4 +45,15 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
         integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
         crossorigin="anonymous"></script>
+
+<script>
+
+
+  $(document).ready(function() {
+    $('.tab-pane:first').addClass('active');
+    $('.nav-item:first').addClass('active');
+  });
+
+
+</script>
 </html>
