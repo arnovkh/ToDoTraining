@@ -1,9 +1,9 @@
 <div>
 
   <div class="input-group mb-3">
-    <input [(ngModel)]="newItem" placeholder="add new item here" class="form-control add-item" />
+    <input [(ngModel)]="newItem" placeholder="add new item here" class="form-control add-item" id="input-{{listId}}" />
     <div class="input-group-append">
-      <button class="btn btn-outline-secondary" type="button" (click)="addItem(listId, newItem)">Add</button>
+      <button class="btn btn-outline-secondary"  id="btn-{{listId}}" type="button" (click)="addItem(listId, newItem)">Add</button>
     </div>
   </div>
 

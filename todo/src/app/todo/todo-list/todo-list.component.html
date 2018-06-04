@@ -1,4 +1,4 @@
-<ul style=" list-style-type: none;">
+<ul style=" list-style-type: none;" id="list-{{listId}}">
   <li class="todo-item" *ngFor="let item of todoService.GetItems(listId)">
 
 <div class="col-md-3 col-sm-12">
@@ -10,7 +10,7 @@
       </div>
       <label [ngClass]="item.completed?'CompletedItem':''" class="form-control todo-item-description">{{item.description}}</label>
       <div class="input-group-append">
-        <button  class="form-control remove-item" (click)="removeItem(listId,item.id)">X</button>
+        <button  class="form-control remove-item" id="remove-{{item.id}}" (click)="removeItem(listId,item.id)">X</button>
       </div>
     </div>
 </div>
