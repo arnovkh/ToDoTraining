@@ -1,5 +1,5 @@
 import {element} from 'protractor';
-
+// https://github.com/arnovkh/ToDoTraining
 describe('todo list', () => {
   it('should be able to add and remove a todo item', async function () {
       browser.get('http://localhost:4200');

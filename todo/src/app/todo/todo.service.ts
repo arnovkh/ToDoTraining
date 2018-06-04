@@ -61,6 +61,6 @@ export class TodoService {
 
   public GetItems(listId: number = 1): ToDoItem[] {
     const todoList = this._lists.filter(list => list.id === listId);
-    return todoList[0].items;
+    return todoList.length > 0 ? todoList[0].items : [];
   }
 }
