@@ -18,10 +18,11 @@ import static org.springframework.web.bind.annotation.RequestMethod.*;
 public class TodoService {
     private TodoListRepository repository;
     private ToDoItemRepository itemRepository;
+
     @Autowired
     public TodoService(TodoListRepository repository, ToDoItemRepository itemRepository) {
         this.repository = repository;
-        this.itemRepository=itemRepository;
+        this.itemRepository = itemRepository;
     }
 
     @PostMapping
@@ -32,23 +33,23 @@ public class TodoService {
     }
 
     @RequestMapping(value = "/{todoListId}/items", method = POST)
-    public Mono<ResponseEntity> createTodoItem(@PathVariable() Long todoListId ,@RequestBody Mono<TodoItemRequest> request) {
+    public Mono<ResponseEntity> createTodoItem(@PathVariable() Long todoListId, @RequestBody Mono<TodoItemRequest> request) {
 
-               return  request.map(r ->
-                {
+        return request.map(r ->
+        {
 
-                    TodoList list = this.repository.findById(todoListId).get();
-                    list.addItem(r.getDescription());
-                    this.repository.save(list);
-                    return ResponseEntity.created(URI.create("/todo/" + todoListId)).build();
-                });
+            TodoList list = this.repository.findById(todoListId).get();
+            list.addItem(r.getDescription());
+            this.repository.save(list);
+            return ResponseEntity.created(URI.create("/todo/" + todoListId)).build();
+        });
 
     }
 
-        @RequestMapping(value = "/{todoListId}/items/{todoItemId}", method = PATCH)
-    public Mono<ResponseEntity> updateTodoItem(@PathVariable Long todoListId ,@PathVariable Long todoItemId,@RequestBody Mono<TodoItemRequest> request) {
+    @RequestMapping(value = "/{todoListId}/items/{todoItemId}", method = PATCH)
+    public Mono<ResponseEntity> updateTodoItem(@PathVariable Long todoListId, @PathVariable Long todoItemId, @RequestBody Mono<TodoItemRequest> request) {
 
-        return  request.map(r ->
+        return request.map(r ->
         {
             TodoList list = this.repository.findById(todoListId).get();
             TodoItem item = list.getItem(todoItemId);
@@ -62,11 +63,11 @@ public class TodoService {
     }
 
     @RequestMapping(value = "/{todoListId}/items/{todoItemId}", method = DELETE)
-    public ResponseEntity deleteTodoItem(@PathVariable Long todoListId ,@PathVariable Long todoItemId) {
-            TodoList list = this.repository.findById(todoListId).get();
-            list.removeItem(todoItemId);
-            this.repository.save(list);
-            return ResponseEntity.ok(URI.create("/todo/" + todoListId));
+    public ResponseEntity deleteTodoItem(@PathVariable Long todoListId, @PathVariable Long todoItemId) {
+        TodoList list = this.repository.findById(todoListId).get();
+        list.removeItem(todoItemId);
+        this.repository.save(list);
+        return ResponseEntity.ok(URI.create("/todo/" + todoListId));
 
 
     }
@@ -77,7 +78,7 @@ public class TodoService {
     }
 
     @RequestMapping(value = "/{id}", method = GET)
-public ResponseEntity fetchTodoListById(@PathVariable Long id) {
+    public ResponseEntity fetchTodoListById(@PathVariable Long id) {
         return ResponseEntity.ok(repository.findById(id));
-        }
+    }
 }
